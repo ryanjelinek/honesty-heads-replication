@@ -47,7 +47,8 @@ Sauers asked which of his results replicate "on other training datasets". This i
 - `data/items/items-ry.json`: the 106 kept pairs as items in Sauers' format (family `ry`).
 - `data/results/`: the measured outputs. `p6/` direction, heads and lie removal; `p7/` the persona runs (ours, the
   crossed test, the balanced and word-class rebuilds, the opposite push, the bfloat16 edge check); `q0/` the crossed
-  opposite push and the random test for the other-words rebuild.
+  opposite push, the random test for the other-words rebuild, and a first test of the next question (design C:
+  a direction from his truthful replies only, owning up in a sentence against a plain Yes or No; not yet written up).
 - `code/`: our scripts and run files, used alongside his repo (see below). Some comments refer to our private planning
   notes (PLAN, DECISIONS, PREDICTIONS); those are not included.
 
