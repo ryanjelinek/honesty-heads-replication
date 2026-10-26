@@ -1,0 +1,10 @@
+[
+ {
+  "name": "our head set",
+  "delta": "out/step2/natural/delta_A_ry.pt",
+  "kind": "h",
+  "units": "out/step2/natsel_ry/heads_nat.json",
+  "alpha": 2.0,
+  "random": 39
+ }
+]

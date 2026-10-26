@@ -1,0 +1,20 @@
+RUN-BEGIN 2026-10-24T09:25:15Z name=p6-need-his args: natneed --model $HOME/models/qwen3.5-9b-hf --device xpu --dtype bfloat16 --items step2/items_rp_ry.json --heads results/heads_nat.json --delta results/delta_A_rp.pt --families ry,rp --labels lie,resist --n-items 40 --out out/step2/need_his
+no other GPU jobs
+               total        used        free      shared  buff/cache   available
+Mem:           31007        2421       22084           0        6902       28585
+[transformers] The fast path is not available because one of the required library is not installed. Falling back to torch implementation. To install follow https://github.com/fla-org/flash-linear-attention#installation and https://github.com/Dao-AILab/causal-conv1d
+
+Loading weights:   0%|          | 0/427 [00:00<?, ?it/s]
+Loading weights:  46%|████▌     | 195/427 [00:00<00:00, 1891.28it/s]
+Loading weights: 100%|██████████| 427/427 [00:00<00:00, 3022.04it/s]
+natural ry       select+test lie    candidates   43 used   40 (tail under 9: 0, float32 m sign disagrees with the label: 0); median m +1.26
+need ry lie (n 40): set 0.70; every_head 0.70; every_head_but_set 0.20; every head vs every head but the set McNemar p 1.91e-06 (82 s)
+natural ry       select+test resist candidates   56 used   40 (tail under 9: 0, float32 m sign disagrees with the label: 0); median m -1.26
+need ry resist (n 40): set 0.55; every_head 0.57; every_head_but_set 0.17; every head vs every head but the set McNemar p 3.05e-05 (108 s)
+natural rp       test        lie    candidates   34 used   34 (tail under 9: 0, float32 m sign disagrees with the label: 0); median m +1.44
+need rp lie (n 34): set 0.47; every_head 0.59; every_head_but_set 0.18; every head vs every head but the set McNemar p 0.000122 (131 s)
+natural rp       test        resist candidates   16 used   16 (tail under 9: 0, float32 m sign disagrees with the label: 0); median m -1.71
+need rp resist (n 16): set 0.56; every_head 0.38; every_head_but_set 0.06; every head vs every head but the set McNemar p 0.0625 (141 s)
+natneed done 141 s -> out/step2/need_his/need_nat.json
+RUN-EXIT rc=0 wall_s=147 2026-10-24T09:27:42Z
+P6-NEED-ALL-DONE

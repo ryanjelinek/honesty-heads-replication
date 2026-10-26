@@ -1,0 +1,6 @@
+[
+ {"name": "his heads, design C (his truths: other openings minus Yes/No)", "delta": "out/step2/q0/delta_C_rp.pt",
+  "kind": "h", "units": "results/heads_nat.json", "alpha": 2.0, "random": 19},
+ {"name": "our heads, design C (his truths: other openings minus Yes/No)", "delta": "out/step2/q0/delta_C_rp.pt",
+  "kind": "h", "units": "out/step2/natsel_ry/heads_nat.json", "alpha": 2.0, "random": 19}
+]

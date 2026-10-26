@@ -1,0 +1,44 @@
+{
+ "families": [
+  "ry",
+  "rp"
+ ],
+ "cells": {
+  "ry": {
+   "lie no": 20,
+   "lie yes": 23,
+   "resist no": 31,
+   "resist yes": 25
+  },
+  "rp": {
+   "lie no": 28,
+   "lie other": 8,
+   "lie yes": 19,
+   "resist no": 7,
+   "resist other": 23,
+   "resist yes": 10
+  }
+ },
+ "splits": 50,
+ "span": 9,
+ "dtype": "bfloat16",
+ "median_p5_p95": {
+  "within ry": [
+   0.296,
+   0.161,
+   0.383
+  ],
+  "within rp": [
+   0.26,
+   0.133,
+   0.363
+  ],
+  "cross": [
+   0.02,
+   0.011,
+   0.032
+  ]
+ },
+ "full_cos": 0.03138987894643878,
+ "cross_corrected": 0.072
+}

@@ -1,0 +1,55 @@
+RUN-BEGIN 2026-10-24T08:36:21Z name=p6-natural args: natural --model $HOME/models/qwen3.5-9b-hf --device xpu --dtype bfloat16 --items step2/items_rp_ry.json --source ry --families ry,rp,it --out out/step2/natural --span 9 --alphas 1,2 --wheres every,span --random-deltas 10 --bins 4 --n-select 400 --n-items 40 --controls data/controls.json --ctl-groups honest_tf,honest_qa,french,caps,json,sys_caps,sys_negation,sys_fiction,sys_labelswap,sys_swap_shots,sys_honest
+no other GPU jobs
+               total        used        free      shared  buff/cache   available
+Mem:           31007        2149       27975           0        1280       28858
+[transformers] The fast path is not available because one of the required library is not installed. Falling back to torch implementation. To install follow https://github.com/fla-org/flash-linear-attention#installation and https://github.com/Dao-AILab/causal-conv1d
+
+Loading weights:   0%|          | 0/427 [00:00<?, ?it/s]
+Loading weights:  43%|████▎     | 183/427 [00:00<00:00, 1803.79it/s]
+Loading weights: 100%|██████████| 427/427 [00:00<00:00, 2120.54it/s]
+natural ry       select      lie    candidates   22 used   22 (tail under 9: 0, float32 m sign disagrees with the label: 0); median m +1.26
+natural ry       select      resist candidates   22 used   22 (tail under 9: 0, float32 m sign disagrees with the label: 0); median m -1.44
+delta bin 0: {'bin': 0, 'lies': 22, 'resists': 22, 'm_median': [1.262, -1.443]}
+delta_A_ry: 20 s
+natural ry       test        lie    candidates   21 used   21 (tail under 9: 0, float32 m sign disagrees with the label: 0); median m +0.90
+ry lie delta every@1.0: n 21 removed 0.71 [0.48, 0.89] flip 0.76 [0.53, 0.92] dm 1.62 [1.26, 2.16]
+ry lie delta every@2.0: n 21 removed 0.95 [0.76, 1.00] flip 0.95 [0.76, 1.00] dm 2.89 [2.34, 3.79]
+ry lie delta span@1.0: n 21 removed 0.48 [0.26, 0.70] flip 0.52 [0.30, 0.74] dm 0.90 [0.54, 1.26]
+ry lie delta span@2.0: n 21 removed 0.71 [0.48, 0.89] flip 0.71 [0.48, 0.89] dm 1.62 [1.26, 2.34]
+ry lie random every@1.0: removed min 0.00 median 0.05 max 0.24 over 10
+ry lie random every@2.0: removed min 0.05 median 0.14 max 0.38 over 10
+natural ry       test        resist candidates   34 used   34 (tail under 9: 0, float32 m sign disagrees with the label: 0); median m -1.17
+ry resist delta every@1.0: n 34 induced 0.47 [0.30, 0.65] flip 0.50 [0.32, 0.68] dm 1.26 [0.90, 1.62]
+ry resist delta every@2.0: n 34 induced 0.82 [0.65, 0.93] flip 0.76 [0.59, 0.89] dm 3.34 [2.16, 4.15]
+ry resist delta span@1.0: n 34 induced 0.32 [0.17, 0.51] flip 0.32 [0.17, 0.51] dm 0.72 [0.54, 0.90]
+ry resist delta span@2.0: n 34 induced 0.62 [0.44, 0.78] flip 0.56 [0.38, 0.73] dm 1.71 [1.44, 2.16]
+ry resist random every@1.0: induced min 0.00 median 0.03 max 0.15 over 10
+ry resist random every@2.0: induced min 0.00 median 0.07 max 0.21 over 10
+natural rp       select+test lie    candidates   56 used   40 (tail under 9: 0, float32 m sign disagrees with the label: 0); median m +1.44
+rp lie delta every@1.0: n 40 removed 0.30 [0.17, 0.47] flip 0.30 [0.17, 0.47] dm 0.99 [0.54, 1.26]
+rp lie delta every@2.0: n 40 removed 0.50 [0.34, 0.66] flip 0.47 [0.32, 0.64] dm 1.62 [0.54, 2.16]
+rp lie delta span@1.0: n 40 removed 0.17 [0.07, 0.33] flip 0.17 [0.07, 0.33] dm 0.54 [0.36, 0.72]
+rp lie delta span@2.0: n 40 removed 0.38 [0.23, 0.54] flip 0.42 [0.27, 0.59] dm 1.17 [0.54, 1.44]
+rp lie random every@1.0: removed min 0.00 median 0.01 max 0.07 over 10
+rp lie random every@2.0: removed min 0.00 median 0.10 max 0.30 over 10
+natural rp       select+test resist candidates   40 used   40 (tail under 9: 0, float32 m sign disagrees with the label: 0); median m -1.71
+rp resist delta every@1.0: n 40 induced 0.23 [0.11, 0.38] flip 0.20 [0.09, 0.36] dm 0.72 [0.36, 1.08]
+rp resist delta every@2.0: n 40 induced 0.35 [0.21, 0.52] flip 0.30 [0.17, 0.47] dm 1.53 [0.18, 2.16]
+rp resist delta span@1.0: n 40 induced 0.15 [0.06, 0.30] flip 0.15 [0.06, 0.30] dm 0.36 [0.18, 0.72]
+rp resist delta span@2.0: n 40 induced 0.23 [0.11, 0.38] flip 0.20 [0.09, 0.36] dm 0.99 [0.18, 1.26]
+rp resist random every@1.0: induced min 0.00 median 0.04 max 0.07 over 10
+rp resist random every@2.0: induced min 0.03 median 0.06 max 0.12 over 10
+natural it       select+test lie    candidates    0 used    0 (tail under 9: 0, float32 m sign disagrees with the label: 0); median m +nan
+natural it       select+test resist candidates    0 used    0 (tail under 9: 0, float32 m sign disagrees with the label: 0); median m +nan
+controls honest_tf (38 right unedited): delta every@1.0 0.97; delta every@2.0 0.97; delta span@1.0 1.00; delta span@2.0 1.00; random every@2.0 min 1.00 median 1.00
+controls sys_labelswap (12 right unedited): delta every@1.0 0.83; delta every@2.0 0.83; delta span@1.0 0.83; delta span@2.0 0.83; random every@2.0 min 0.17 median 0.83
+controls sys_caps (35 right unedited): delta every@1.0 1.00; delta every@2.0 1.00; delta span@1.0 1.00; delta span@2.0 1.00; random every@2.0 min 1.00 median 1.00
+controls sys_honest (37 right unedited): delta every@1.0 1.00; delta every@2.0 1.00; delta span@1.0 1.00; delta span@2.0 1.00; random every@2.0 min 0.97 median 1.00
+controls honest_qa (27 right unedited): delta every@1.0 1.00; delta every@2.0 0.96; delta span@1.0 1.00; delta span@2.0 1.00; random every@2.0 min 0.93 median 0.96
+controls caps (22 right unedited): delta every@1.0 1.00; delta every@2.0 0.95; delta span@1.0 1.00; delta span@2.0 0.95; random every@2.0 min 0.91 median 0.95
+controls json (0 right unedited): 
+controls sys_fiction (39 right unedited): delta every@1.0 0.97; delta every@2.0 0.97; delta span@1.0 1.00; delta span@2.0 0.97; random every@2.0 min 0.95 median 0.99
+controls french (35 right unedited): delta every@1.0 0.89; delta every@2.0 0.77; delta span@1.0 0.91; delta span@2.0 0.77; random every@2.0 min 0.77 median 0.91
+controls sys_swap_shots (29 right unedited): delta every@1.0 1.00; delta every@2.0 1.00; delta span@1.0 1.00; delta span@2.0 0.97; random every@2.0 min 0.83 median 1.00
+natural done 485 s -> out/step2/natural/delta_A_ry.json
+RUN-EXIT rc=0 wall_s=549 2026-10-24T08:45:30Z

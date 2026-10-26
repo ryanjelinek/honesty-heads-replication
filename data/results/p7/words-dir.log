@@ -1,0 +1,16 @@
+RUN-BEGIN 2026-10-24T12:31:50Z name=p7-words-dir args: step2/ansdir_words.py data/items_roleplay_insider.json out/step2/words --family rp --device xpu
+no other GPU jobs
+               total        used        free      shared  buff/cache   available
+Mem:           31007        2145       23543           0        5716       28862
+[transformers] The fast path is not available because one of the required library is not installed. Falling back to torch implementation. To install follow https://github.com/fla-org/flash-linear-attention#installation and https://github.com/Dao-AILab/causal-conv1d
+
+Loading weights:   0%|          | 0/427 [00:00<?, ?it/s]
+Loading weights:  46%|████▌     | 196/427 [00:00<00:00, 1953.34it/s]
+Loading weights: 100%|██████████| 427/427 [00:00<00:00, 2570.27it/s]
+natural rp       select+test lie    candidates   56 used   56 (tail under 9: 0, float32 m sign disagrees with the label: 0); median m +1.53
+natural rp       select+test resist candidates   40 used   40 (tail under 9: 0, float32 m sign disagrees with the label: 0); median m -1.62
+classes {'lie no': 29, 'lie other': 8, 'lie yes': 19, 'resist no': 7, 'resist other': 21, 'resist yes': 12}
+delta_A_rp_yesno.pt: {"classes": ["yes", "no"], "items": {"lie no": 29, "lie yes": 19, "resist no": 7, "resist yes": 12}, "splits": "select+test", "norm_heads": 9.031061893788271, "cos": {"delta_A_rp.pt": 0.3108, "delta_A_rp_answer.pt": 0.3835}}
+delta_A_rp_other.pt: {"classes": ["other"], "items": {"lie other": 8, "resist other": 21}, "splits": "select+test", "norm_heads": 16.574562384323844, "cos": {"delta_A_rp.pt": 0.0785, "delta_A_rp_answer.pt": 0.4852}}
+RUN-EXIT rc=0 wall_s=107 2026-10-24T12:33:37Z
+P7-WORDS-ALL-DONE

@@ -1,0 +1,63 @@
+{
+ "cells": {
+  "ry": {
+   "lie no": 20,
+   "lie yes": 23,
+   "resist no": 31,
+   "resist yes": 25
+  },
+  "rp": {
+   "lie no": 29,
+   "lie other": 8,
+   "lie yes": 19,
+   "resist no": 7,
+   "resist other": 23,
+   "resist yes": 10
+  }
+ },
+ "splits": 50,
+ "span": 9,
+ "dtype": "bfloat16",
+ "plain": {
+  "median_p5_p95": {
+   "within ry": [
+    0.295,
+    0.175,
+    0.378
+   ],
+   "within rp": [
+    0.258,
+    0.119,
+    0.376
+   ],
+   "cross": [
+    0.018,
+    0.009,
+    0.029
+   ]
+  },
+  "full_cos": 0.027651273345800573,
+  "cross_corrected": 0.065
+ },
+ "balanced": {
+  "median_p5_p95": {
+   "within ry": [
+    0.27,
+    0.181,
+    0.35
+   ],
+   "within rp": [
+    0.182,
+    0.071,
+    0.274
+   ],
+   "cross": [
+    0.131,
+    0.114,
+    0.138
+   ]
+  },
+  "full_cos": 0.2141945917814245,
+  "cross_corrected": 0.591
+ }
+}

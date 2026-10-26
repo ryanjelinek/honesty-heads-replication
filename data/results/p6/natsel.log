@@ -1,0 +1,33 @@
+RUN-BEGIN 2026-10-24T09:09:06Z name=p6-natsel args: natsel --model $HOME/models/qwen3.5-9b-hf --device xpu --dtype bfloat16 --items step2/items_rp_ry.json --delta out/step2/natural/delta_A_ry.pt --source ry --families ry --out out/step2/natsel_ry --span 9 --select-alpha 2 --ig-items 40 --ig-steps 6 --curve-items 40 --per-doubling 4 --random 8 --n-items 40 --controls data/controls.json --ctl-groups honest_tf,honest_qa,french,caps,json,sys_caps,sys_fiction,sys_labelswap,sys_swap_shots,sys_honest
+no other GPU jobs
+               total        used        free      shared  buff/cache   available
+Mem:           31007        2176       27257           0        1970       28830
+[transformers] The fast path is not available because one of the required library is not installed. Falling back to torch implementation. To install follow https://github.com/fla-org/flash-linear-attention#installation and https://github.com/Dao-AILab/causal-conv1d
+
+Loading weights:   0%|          | 0/427 [00:00<?, ?it/s]
+Loading weights:  42%|████▏     | 180/427 [00:00<00:00, 1745.57it/s]
+Loading weights:  96%|█████████▌| 409/427 [00:00<00:00, 2033.86it/s]
+Loading weights: 100%|██████████| 427/427 [00:00<00:00, 2024.12it/s]
+natural ry       select      lie    candidates   22 used   22 (tail under 9: 0, float32 m sign disagrees with the label: 0); median m +1.26
+natural ry       select      resist candidates   22 used   22 (tail under 9: 0, float32 m sign disagrees with the label: 0); median m -1.44
+ig lie: 22 of 22 items with an every-head m change of at least 0.5 bits (median change -3.30) (132 s)
+ig resist: 21 of 22 items with an every-head m change of at least 0.5 bits (median change +3.15) (243 s)
+curve min: first passing 20; 4 heads lie 0.42 resist 0.30; 8 heads lie 0.61 resist 0.41; 16 heads lie 0.81 resist 0.65; 147 heads lie 1.64 resist 1.48; 249 heads lie 1.73 resist 1.63; 421 heads lie 1.78 resist 1.59; 709 heads lie 1.66 resist 1.66
+curve mean: first passing 20; 4 heads lie 0.42 resist 0.30; 8 heads lie 0.61 resist 0.41; 16 heads lie 0.81 resist 0.65; 147 heads lie 1.71 resist 1.50; 249 heads lie 1.80 resist 1.60; 421 heads lie 1.81 resist 1.64; 709 heads lie 1.70 resist 1.69
+head set (mean): 20 heads (met True) layers {7: 1, 10: 1, 11: 5, 12: 1, 13: 1, 14: 1, 15: 4, 16: 1, 17: 2, 18: 1, 19: 1, 20: 1} (453 s)
+natural ry       test        lie    candidates   21 used   21 (tail under 9: 0, float32 m sign disagrees with the label: 0); median m +0.90
+ry lie: set n 21 removed 0.95 [0.76, 1.00] flip 0.95 [0.76, 1.00] dm 2.89 [2.16, 3.97]; every head n 21 removed 0.95 [0.76, 1.00] flip 0.95 [0.76, 1.00] dm 2.89 [2.34, 3.79]; random removed max 0.05
+natural ry       test        resist candidates   34 used   34 (tail under 9: 0, float32 m sign disagrees with the label: 0); median m -1.08
+ry resist: set n 34 induced 0.82 [0.65, 0.93] flip 0.82 [0.65, 0.93] dm 2.25 [1.98, 3.07]; every head n 34 induced 0.82 [0.65, 0.93] flip 0.76 [0.59, 0.89] dm 3.52 [2.16, 4.15]; random induced max 0.06
+controls honest_tf (38): {'n': 38, 'set': 1.0, 'every_head': 0.9737, 'random_mean': 1.0}
+controls sys_labelswap (12): {'n': 12, 'set': 0.8333, 'every_head': 0.8333, 'random_mean': 0.8333}
+controls sys_caps (35): {'n': 35, 'set': 1.0, 'every_head': 1.0, 'random_mean': 1.0}
+controls sys_honest (37): {'n': 37, 'set': 1.0, 'every_head': 1.0, 'random_mean': 1.0}
+controls honest_qa (27): {'n': 27, 'set': 1.0, 'every_head': 0.963, 'random_mean': 1.0}
+controls caps (22): {'n': 22, 'set': 1.0, 'every_head': 0.9545, 'random_mean': 1.0}
+controls json (0): {'n': 0, 'set': None, 'every_head': None, 'random_mean': None}
+controls sys_fiction (39): {'n': 39, 'set': 0.9744, 'every_head': 0.9744, 'random_mean': 1.0}
+controls french (35): {'n': 35, 'set': 1.0, 'every_head': 0.7714, 'random_mean': 1.0}
+controls sys_swap_shots (29): {'n': 29, 'set': 1.0, 'every_head': 1.0, 'random_mean': 1.0}
+natsel done 714 s -> out/step2/natsel_ry/heads_nat.json
+RUN-EXIT rc=0 wall_s=779 2026-10-24T09:22:05Z

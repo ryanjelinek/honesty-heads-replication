@@ -1,0 +1,6 @@
+[
+ {"name": "his heads, his yes/no-only direction", "delta": "out/step2/words/delta_A_rp_yesno.pt", "kind": "h",
+  "units": "results/heads_nat.json", "alpha": 2.0, "random": 19},
+ {"name": "his heads, his other-opening-only direction", "delta": "out/step2/words/delta_A_rp_other.pt", "kind": "h",
+  "units": "results/heads_nat.json", "alpha": 2.0, "random": 0}
+]

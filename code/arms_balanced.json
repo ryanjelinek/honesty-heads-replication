@@ -1,0 +1,6 @@
+[
+ {"name": "his heads, his balanced direction", "delta": "out/step2/ansdir/delta_A_rp_answer.pt", "kind": "h",
+  "units": "results/heads_nat.json", "alpha": 2.0, "random": 19},
+ {"name": "his balanced heads, his balanced direction", "delta": "out/step2/ansdir/delta_A_rp_answer.pt", "kind": "h",
+  "units": "results/replication/balanced/heads_nat.json", "alpha": 2.0, "random": 0}
+]

@@ -1,0 +1,8 @@
+[
+ {"name": "our heads, his direction", "delta": "results/delta_A_rp.pt", "kind": "h",
+  "units": "out/step2/natsel_ry/heads_nat.json", "alpha": 2.0, "random": 19},
+ {"name": "his heads, our direction", "delta": "out/step2/natural/delta_A_ry.pt", "kind": "h",
+  "units": "results/heads_nat.json", "alpha": 2.0, "random": 19},
+ {"name": "his heads, his direction (bfloat16 check)", "delta": "results/delta_A_rp.pt", "kind": "h",
+  "units": "results/heads_nat.json", "alpha": 2.0, "random": 0}
+]

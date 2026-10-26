@@ -1,0 +1,61 @@
+RUN-BEGIN 2026-10-24T09:45:28Z name=p7-persona args: code/persona_rep.py run --items step2/items_rp_ry.json --persona data/items_persona.json --arms step2/arms_ry39.json --families ry,rp --controls data/controls.json --out out/step2/persona_ry --model $HOME/models/qwen3.5-9b-hf --dtype bfloat16 --device xpu
+no other GPU jobs
+               total        used        free      shared  buff/cache   available
+Mem:           31007        2137       23407           0        5864       28869
+[transformers] The fast path is not available because one of the required library is not installed. Falling back to torch implementation. To install follow https://github.com/fla-org/flash-linear-attention#installation and https://github.com/Dao-AILab/causal-conv1d
+
+Loading weights:   0%|          | 0/427 [00:00<?, ?it/s]
+Loading weights:  46%|████▌     | 196/427 [00:00<00:00, 1922.35it/s]
+Loading weights: 100%|██████████| 427/427 [00:00<00:00, 2911.70it/s]
+1 arms, 41 rows: our head set alpha 2
+natural ry       test        lie    candidates   21 used   21 (tail under 9: 0, float32 m sign disagrees with the label: 0); median m +0.90
+ry lie (21): our head set 0.95; random max our head set 0.14
+  said yes (12): our head set 0.92
+  said no (9): our head set 1.00
+natural ry       test        resist candidates   34 used   34 (tail under 9: 0, float32 m sign disagrees with the label: 0); median m -1.08
+ry resist (34): our head set 0.82; random max our head set 0.12
+  said yes (14): our head set 0.86
+  said no (20): our head set 0.80
+natural rp       test        lie    candidates   34 used   34 (tail under 9: 0, float32 m sign disagrees with the label: 0); median m +1.44
+rp lie (34): our head set 0.32; random max our head set 0.09
+  said yes (12): our head set 0.17
+  said no (16): our head set 0.50
+  said other (6): our head set 0.17
+natural rp       test        resist candidates   16 used   16 (tail under 9: 0, float32 m sign disagrees with the label: 0); median m -1.71
+rp resist (16): our head set 0.38; random max our head set 0.12
+  said yes (5): our head set 0.40
+  said no (4): our head set 0.75
+  said other (7): our head set 0.14
+controls honest_tf (16): our head set 1.00
+controls sys_labelswap (1): our head set 0.00
+controls sys_caps (14): our head set 1.00
+controls sys_honest (16): our head set 1.00
+controls honest_qa (14): our head set 1.00
+controls caps (10): our head set 1.00
+controls sys_fiction (16): our head set 0.94
+controls french (14): our head set 1.00
+controls sys_swap_shots (15): our head set 1.00
+lies and controls done (574 s)
+persona 100: our head set +0.00 (692 s)
+persona 200: our head set +0.00 (809 s)
+persona 300: our head set +0.00 (923 s)
+persona 400: our head set -0.00 (1038 s)
+persona 500: our head set -0.00 (1149 s)
+persona 600: our head set -0.00 (1263 s)
+persona 700: our head set -0.18 (1375 s)
+persona 800: our head set -0.18 (1491 s)
+persona 900: our head set -0.18 (1606 s)
+persona 1000: our head set -0.18 (1723 s)
+persona 1100: our head set -0.18 (1834 s)
+persona 1200: our head set -0.18 (1942 s)
+persona 1300: our head set -0.18 (2055 s)
+persona 1400: our head set -0.18 (2171 s)
+persona 1500: our head set -0.18 (2284 s)
+persona 1600: our head set -0.18 (2394 s)
+persona 1700: our head set -0.18 (2519 s)
+persona 1800: our head set -0.18 (2644 s)
+persona 1900: our head set -0.18 (2769 s)
+persona 2000: our head set -0.18 (2885 s)
+persona 2100: our head set -0.18 (3010 s)
+persona_rep run done 3079 s -> out/step2/persona_ry/persona.json
+RUN-EXIT rc=0 wall_s=3092 2026-10-24T10:37:00Z

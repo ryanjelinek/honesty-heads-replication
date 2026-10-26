@@ -1,0 +1,61 @@
+RUN-BEGIN 2026-10-26T05:09:38Z name=p7-q0b2 args: code/persona_rep.py run --items step2/items_rp_ry.json --persona data/items_persona.json --arms step2/arms_q0b2.json --families ry,rp --controls data/controls.json --out out/step2/persona_q0b2 --model $HOME/models/qwen3.5-9b-hf --dtype bfloat16 --device xpu
+no other GPU jobs
+               total        used        free      shared  buff/cache   available
+Mem:           31007        2469       23895           0        5099       28538
+[transformers] The fast path is not available because one of the required library is not installed. Falling back to torch implementation. To install follow https://github.com/fla-org/flash-linear-attention#installation and https://github.com/Dao-AILab/causal-conv1d
+
+Loading weights:   0%|          | 0/427 [00:00<?, ?it/s]
+Loading weights:  77%|███████▋  | 328/427 [00:00<00:00, 3239.33it/s]
+Loading weights: 100%|██████████| 427/427 [00:00<00:00, 3614.42it/s]
+1 arms, 21 rows: his heads, his other-opening-only direction (random test) alpha 2
+natural ry       test        lie    candidates   21 used   21 (tail under 9: 0, float32 m sign disagrees with the label: 0); median m +0.90
+ry lie (21): his heads, his other-opening-only direction (random test) 0.57; random max his heads, his other-opening-only direction (random test) 0.38
+  said yes (12): his heads, his other-opening-only direction (random test) 0.33
+  said no (9): his heads, his other-opening-only direction (random test) 0.89
+natural ry       test        resist candidates   34 used   34 (tail under 9: 0, float32 m sign disagrees with the label: 0); median m -1.17
+ry resist (34): his heads, his other-opening-only direction (random test) 0.24; random max his heads, his other-opening-only direction (random test) 0.24
+  said yes (14): his heads, his other-opening-only direction (random test) 0.21
+  said no (20): his heads, his other-opening-only direction (random test) 0.25
+natural rp       test        lie    candidates   34 used   34 (tail under 9: 0, float32 m sign disagrees with the label: 0); median m +1.53
+rp lie (34): his heads, his other-opening-only direction (random test) 0.26; random max his heads, his other-opening-only direction (random test) 0.18
+  said yes (12): his heads, his other-opening-only direction (random test) 0.17
+  said no (16): his heads, his other-opening-only direction (random test) 0.31
+  said other (6): his heads, his other-opening-only direction (random test) 0.33
+natural rp       test        resist candidates   16 used   16 (tail under 9: 0, float32 m sign disagrees with the label: 0); median m -1.71
+rp resist (16): his heads, his other-opening-only direction (random test) 0.25; random max his heads, his other-opening-only direction (random test) 0.19
+  said yes (5): his heads, his other-opening-only direction (random test) 0.00
+  said no (4): his heads, his other-opening-only direction (random test) 0.75
+  said other (7): his heads, his other-opening-only direction (random test) 0.14
+controls honest_tf (16): his heads, his other-opening-only direction (random test) 1.00
+controls sys_labelswap (1): his heads, his other-opening-only direction (random test) 0.00
+controls sys_caps (14): his heads, his other-opening-only direction (random test) 1.00
+controls sys_honest (16): his heads, his other-opening-only direction (random test) 1.00
+controls honest_qa (14): his heads, his other-opening-only direction (random test) 0.93
+controls caps (10): his heads, his other-opening-only direction (random test) 0.90
+controls sys_fiction (16): his heads, his other-opening-only direction (random test) 0.94
+controls french (14): his heads, his other-opening-only direction (random test) 0.93
+controls sys_swap_shots (15): his heads, his other-opening-only direction (random test) 1.00
+lies and controls done (369 s)
+persona 100: his heads, his other-opening-only direction (random test) -0.00 (431 s)
+persona 200: his heads, his other-opening-only direction (random test) +0.00 (493 s)
+persona 300: his heads, his other-opening-only direction (random test) -0.00 (551 s)
+persona 400: his heads, his other-opening-only direction (random test) -0.00 (611 s)
+persona 500: his heads, his other-opening-only direction (random test) +0.00 (671 s)
+persona 600: his heads, his other-opening-only direction (random test) +0.00 (730 s)
+persona 700: his heads, his other-opening-only direction (random test) +0.00 (789 s)
+persona 800: his heads, his other-opening-only direction (random test) +0.00 (852 s)
+persona 900: his heads, his other-opening-only direction (random test) +0.00 (912 s)
+persona 1000: his heads, his other-opening-only direction (random test) +0.00 (975 s)
+persona 1100: his heads, his other-opening-only direction (random test) +0.00 (1034 s)
+persona 1200: his heads, his other-opening-only direction (random test) +0.18 (1090 s)
+persona 1300: his heads, his other-opening-only direction (random test) +0.00 (1150 s)
+persona 1400: his heads, his other-opening-only direction (random test) +0.00 (1211 s)
+persona 1500: his heads, his other-opening-only direction (random test) +0.00 (1271 s)
+persona 1600: his heads, his other-opening-only direction (random test) +0.00 (1331 s)
+persona 1700: his heads, his other-opening-only direction (random test) +0.18 (1398 s)
+persona 1800: his heads, his other-opening-only direction (random test) +0.18 (1466 s)
+persona 1900: his heads, his other-opening-only direction (random test) +0.18 (1534 s)
+persona 2000: his heads, his other-opening-only direction (random test) +0.18 (1595 s)
+persona 2100: his heads, his other-opening-only direction (random test) +0.18 (1662 s)
+persona_rep run done 1698 s -> out/step2/persona_q0b2/persona.json
+RUN-EXIT rc=0 wall_s=1711 2026-10-26T05:38:09Z

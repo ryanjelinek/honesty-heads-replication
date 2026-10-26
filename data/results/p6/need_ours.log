@@ -1,0 +1,20 @@
+RUN-BEGIN 2026-10-24T09:22:40Z name=p6-need-ours args: natneed --model $HOME/models/qwen3.5-9b-hf --device xpu --dtype bfloat16 --items step2/items_rp_ry.json --heads out/step2/natsel_ry/heads_nat.json --delta out/step2/natural/delta_A_ry.pt --families rp,ry --labels lie,resist --n-items 40 --out out/step2/need_ours
+no other GPU jobs
+               total        used        free      shared  buff/cache   available
+Mem:           31007        2138       26975           0        2293       28868
+[transformers] The fast path is not available because one of the required library is not installed. Falling back to torch implementation. To install follow https://github.com/fla-org/flash-linear-attention#installation and https://github.com/Dao-AILab/causal-conv1d
+
+Loading weights:   0%|          | 0/427 [00:00<?, ?it/s]
+Loading weights:  42%|████▏     | 179/427 [00:00<00:00, 1775.51it/s]
+Loading weights:  86%|████████▋ | 369/427 [00:00<00:00, 1838.56it/s]
+Loading weights: 100%|██████████| 427/427 [00:00<00:00, 1890.26it/s]
+natural rp       select+test lie    candidates   56 used   40 (tail under 9: 0, float32 m sign disagrees with the label: 0); median m +1.44
+need rp lie (n 40): set 0.45; every_head 0.50; every_head_but_set 0.17; every head vs every head but the set McNemar p 0.000244 (82 s)
+natural rp       select+test resist candidates   40 used   40 (tail under 9: 0, float32 m sign disagrees with the label: 0); median m -1.71
+need rp resist (n 40): set 0.33; every_head 0.35; every_head_but_set 0.07; every head vs every head but the set McNemar p 0.000977 (109 s)
+natural ry       test        lie    candidates   21 used   21 (tail under 9: 0, float32 m sign disagrees with the label: 0); median m +0.90
+need ry lie (n 21): set 0.95; every_head 0.95; every_head_but_set 0.38; every head vs every head but the set McNemar p 0.000488 (123 s)
+natural ry       test        resist candidates   34 used   34 (tail under 9: 0, float32 m sign disagrees with the label: 0); median m -1.08
+need ry resist (n 34): set 0.82; every_head 0.82; every_head_but_set 0.06; every head vs every head but the set McNemar p 2.98e-08 (145 s)
+natneed done 145 s -> out/step2/need_ours/need_nat.json
+RUN-EXIT rc=0 wall_s=155 2026-10-24T09:25:15Z

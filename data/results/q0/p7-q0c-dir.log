@@ -1,0 +1,13 @@
+RUN-BEGIN 2026-10-26T04:16:09Z name=p7-q0c-dir args: step2/cdir_truths.py data/items_roleplay_insider.json out/step2/q0 --family rp --device xpu
+no other GPU jobs
+               total        used        free      shared  buff/cache   available
+Mem:           31007        2431       24850           0        4182       28576
+[transformers] The fast path is not available because one of the required library is not installed. Falling back to torch implementation. To install follow https://github.com/fla-org/flash-linear-attention#installation and https://github.com/Dao-AILab/causal-conv1d
+
+Loading weights:   0%|          | 0/427 [00:00<?, ?it/s]
+Loading weights:  66%|██████▋   | 283/427 [00:00<00:00, 2805.56it/s]
+Loading weights: 100%|██████████| 427/427 [00:00<00:00, 2383.00it/s]
+natural rp       select+test resist candidates   40 used   40 (tail under 9: 0, float32 m sign disagrees with the label: 0); median m -1.71
+resist classes {'no': 7, 'other': 21, 'yes': 12}
+delta_C_rp.pt: {"design": "C: resist other minus the equal-weight mean of resist yes and resist no", "items": {"no": 7, "other": 21, "yes": 12}, "splits": "select+test", "norm_heads": 15.840177979464325, "cos": {"delta_A_rp.pt": 0.5804, "delta_A_rp_answer.pt": 0.0055, "delta_A_rp_other.pt": -0.0038}, "norm_refs": {"delta_A_rp.pt": 11.503, "delta_A_rp_answer.pt": 11.0493, "delta_A_rp_other.pt": 16.5746}}
+RUN-EXIT rc=0 wall_s=95 2026-10-26T04:17:44Z
